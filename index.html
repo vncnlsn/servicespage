@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Final Concept</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    p {
+      max-width: 640px;
+      color: #333;
+    }
+
+    /* 1. INTRO */
+    .intro {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    .intro p {
+      font-size: 1.15rem;
+    }
+
+    /* 2. SAFETY */
+    .safety {
+      background: #f4f4f4;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 48px 0;
+    }
+
+    .safety h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    /* 3. TIMELINE */
+    .timeline {
+      background: #fff;
+    }
+
+    .timeline .subtitle {
+      color: #555;
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+
+    .stages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .stage {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 20px 18px;
+    }
+
+    .stage-number {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .stage h4 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .stage p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.45;
+    }
+
+    /* 4. THREE PILLARS */
+    .pillars {
+      background: #fafafa;
+    }
+
+    .pillars .lead {
+      color: #555;
+      margin-bottom: 48px;
+      max-width: 520px;
+    }
+
+    .pillar {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      padding: 36px 32px;
+      margin-bottom: 28px;
+    }
+
+    .pillar-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .pillar ul {
+      margin: 18px 0 22px 20px;
+      color: #333;
+    }
+
+    .pillar li {
+      margin-bottom: 6px;
+    }
+
+    .pillar a {
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 5. PRICING */
+    .pricing {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .pricing h2 {
+      color: #fff;
+    }
+
+    .pricing .lead {
+      opacity: 0.9;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 720px;
+    }
+
+    .price-card {
+      padding: 24px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .price-card.highlight {
+      background: #fff;
+      color: #1a1a1a;
+    }
+
+    .price-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* 6. CONTACT */
+    .contact {
+      background: #fff;
+      text-align: center;
+      padding: 70px 0 90px;
+    }
+
+    .contact p {
+      margin: 0 auto 28px;
+      max-width: 420px;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .stages {
+        grid-template-columns: 1fr 1fr;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. SERVICES INTRO -->
+  <section class="intro">
+    <div class="container">
+      <h1>Services</h1>
+      <p>
+        Preparation and field coordination that energy and infrastructure projects depend on. 
+        We evaluate the land, secure the access, keep the information organized, and stay involved 
+        once crews are in the field so the work continues to match the plan, the permits, 
+        and the agreements already in place.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. SAFETY / HSE -->
+  <section class="safety">
+    <div class="container">
+      <h2>Safety &amp; HSE</h2>
+      <p>
+        Every member of the team operates under our Safety Program Manual and Injury &amp; Illness Prevention Program. 
+        Accident prevention is an active, daily responsibility on every project. 
+        APS Land is an active member of ISNetworld.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. TIMELINE -->
+  <section class="timeline">
+    <div class="container">
+      <h2>Across a Project</h2>
+      <p class="subtitle">
+        We understand the full sequence of work and can support a project from the first evaluation 
+        through final closeout — or step in at any point along the way.
+      </p>
+
+      <div class="stages">
+        <div class="stage">
+          <div class="stage-number">01</div>
+          <h4>Planning &amp; Evaluation</h4>
+          <p>Geography, topography, and regulatory requirements assessed before field activity begins.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">02</div>
+          <h4>Land &amp; Ownership</h4>
+          <p>Surface and mineral ownership identified tract by tract.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">03</div>
+          <h4>Permitting &amp; Access</h4>
+          <p>Agreements and permits secured with landowners and agencies.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">04</div>
+          <h4>Field Preparation</h4>
+          <p>Access, records, and reporting systems in place before crews mobilize.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">05</div>
+          <h4>Field Operations</h4>
+          <p>Work tracked against the plan, safety requirements, and existing agreements.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">06</div>
+          <h4>Closeout</h4>
+          <p>Payments reconciled, records finalized, and reporting delivered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THREE PILLARS -->
+  <section class="pillars">
+    <div class="container">
+      <h2>What We Provide</h2>
+      <p class="lead">
+        Three capabilities. We execute each one to the same standard whether we handle 
+        the entire project or only a portion of it.
+      </p>
+
+      <!-- 01 Permitting (flagship) -->
+      <div class="pillar">
+        <div class="pillar-label">01 — Permitting &amp; Land Access</div>
+        <h3>Seismic Permitting &amp; Right-of-Way Acquisition</h3>
+        <p>
+          Over 40 years of successfully permitting projects in 23 states using a proven team approach. 
+          An experienced manager provides direct oversight and maintains clear communication with the client throughout.
+        </p>
+        <p>
+          We secure the agreements and access rights a project needs before survey and exploration work can begin, 
+          working land by land and landowner by landowner. Our team of mineral agents, surface agents, 
+          GIS mappers and coordinators, and support staff keeps the work moving with comprehensive reporting at every stage.
+        </p>
+        <ul>
+          <li>Full landowner payment services — check generation and tracking, delivery, 1099 generation, and required IRS filings</li>
+          <li>Direct coordination with municipal, county, state, and federal agencies</li>
+          <li>Work across private, state, federal, and tribal lands</li>
+          <li>Field coordination once crews are on the ground</li>
+        </ul>
+        <a href="#">Talk to APS About Permitting →</a>
+      </div>
+
+      <!-- 02 Title -->
+      <div class="pillar">
+        <div class="pillar-label">02 — Title &amp; Ownership</div>
+        <h3>Title Curative</h3>
+        <p>
+          One of the most critical tasks on any exploration or production project is confirming that the proper 
+          chain of mineral ownership has been correctly researched and identified on every tract. 
+          A title issue discovered late can stop work entirely.
+        </p>
+        <p>
+          Our title agents work across the country to research ownership thoroughly and resolve issues 
+          before they become delays. The work is coordinated directly with the permitting and access process.
+        </p>
+        <ul>
+          <li>Mineral ownership determination for permitting</li>
+          <li>Full title search back to sovereignty when required</li>
+          <li>Land ownership title opinions</li>
+          <li>Mineral rights title opinions</li>
+          <li>Surface title opinions</li>
+        </ul>
+        <a href="#">Talk to APS About Title →</a>
+      </div>
+
+      <!-- 03 GIS -->
+      <div class="pillar">
+        <div class="pillar-label">03 — Mapping &amp; Data</div>
+        <h3>GIS Services</h3>
+        <p>
+          Experienced GIS mappers and coordinators, using current software, build comprehensive databases 
+          and maps for every project — surface, mineral, topographic, infrastructure, and ownership detail.
+        </p>
+        <p>
+          The result is a working set of maps and data that remains current as the project moves from 
+          evaluation through field operations and closeout.
+        </p>
+        <ul>
+          <li>Project-specific maps combining all relevant layers</li>
+          <li>Databases maintained throughout the life of the job</li>
+          <li>Support from first evaluation through final reporting</li>
+        </ul>
+        <a href="#">Talk to APS About GIS →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. PRICING (closing argument) -->
+  <section class="pricing">
+    <div class="container">
+      <h2>How We Price</h2>
+      <p class="lead">A number, not a guess.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h4>Typical Approach</h4>
+          <p>A range that gets revisited as the project develops. The number you plan around is not necessarily the number you pay.</p>
+        </div>
+        <div class="price-card highlight">
+          <h4>APS Land</h4>
+          <p>Guaranteed turnkey pricing. One number agreed up front and held through completion. No surprises on the invoice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <h2>Talk to APS</h2>
+      <p>Ready to discuss a project, or need support on one already underway?</p>
+      <a href="contact.html">Get in Touch</a>
+    </div>
+  </section>
+
+</body>
+</html>
