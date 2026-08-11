@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Conceptual Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 1. Intro */
+    .intro {
+      padding: 80px 0 60px;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .intro h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .intro p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      color: #333;
+    }
+
+    /* 2. Safety */
+    .safety {
+      padding: 40px 0;
+      background: #f4f4f4;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .safety h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      color: #555;
+    }
+
+    .safety p {
+      max-width: 720px;
+      color: #333;
+    }
+
+    /* 3. Timeline Section */
+    .timeline-section {
+      padding: 70px 0 80px;
+      background: #fff;
+    }
+
+    .timeline-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-section .subtitle {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* Timeline navigation */
+    .timeline-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .timeline-nav button {
+      flex: 0 0 auto;
+      padding: 12px 18px;
+      border: 1px solid #ddd;
+      background: #fff;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .timeline-nav button:hover {
+      border-color: #999;
+    }
+
+    .timeline-nav button.active {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+
+    /* Content panels */
+    .panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .panel .stage-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .pillars {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .pillar {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: #eee;
+      color: #333;
+    }
+
+    .pillar.primary {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .panel p {
+      max-width: 680px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .panel ul {
+      max-width: 680px;
+      padding-left: 20px;
+      color: #333;
+    }
+
+    .panel li {
+      margin-bottom: 6px;
+    }
+
+    /* 4. Pricing */
+    .pricing {
+      padding: 80px 0;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .pricing h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .pricing .lead {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 800px;
+    }
+
+    .pricing-card {
+      padding: 28px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      opacity: 0.7;
+    }
+
+    .pricing-card.highlight {
+      background: #fff;
+      color: #1a1a1a;
+    }
+
+    .pricing-card.highlight h3 {
+      opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Intro -->
+  <section class="intro">
+    <div class="container">
+      <h1>Services</h1>
+      <p>Preparation and field coordination that keeps projects moving cleanly from first evaluation to final closeout. Placeholder intro text that extends the About page voice without repeating it.</p>
+    </div>
+  </section>
+
+  <!-- 2. Safety -->
+  <section class="safety">
+    <div class="container">
+      <h2>Standards</h2>
+      <p>Every member of the team operates under our Safety Program Manual and Injury & Illness Prevention Program. APS Land is an active member of ISNetworld. Placeholder safety statement.</p>
+    </div>
+  </section>
+
+  <!-- 3. Interactive Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2>Across a Project</h2>
+      <p class="subtitle">Click each stage to see the work that happens there.</p>
+
+      <div class="timeline-nav" id="timelineNav">
+        <button data-stage="1" class="active">01 Planning & Evaluation</button>
+        <button data-stage="2">02 Land & Ownership</button>
+        <button data-stage="3">03 Permitting & Access</button>
+        <button data-stage="4">04 Field Preparation</button>
+        <button data-stage="5">05 Field Operations</button>
+        <button data-stage="6">06 Closeout</button>
+      </div>
+
+      <!-- Panels -->
+      <div id="panels">
+
+        <div class="panel active" data-stage="1">
+          <div class="stage-label">Stage 01</div>
+          <h3>Project Planning & Evaluation</h3>
+          <div class="pillars">
+            <span class="pillar primary">GIS</span>
+            <span class="pillar">Title</span>
+          </div>
+          <p>Placeholder content for the planning stage. Geography, topography, and regulatory requirements are assessed before any field activity begins.</p>
+          <ul>
+            <li>Initial site evaluation</li>
+            <li>Regulatory landscape review</li>
+            <li>Early GIS mapping support</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-stage="2">
+          <div class="stage-label">Stage 02</div>
+          <h3>Land & Ownership Research</h3>
+          <div class="pillars">
+            <span class="pillar primary">Title Curative</span>
+            <span class="pillar">GIS</span>
+          </div>
+          <p>Placeholder content focused on Title Curative. Surface and mineral ownership identified tract by tract so the right parties are approached from the start.</p>
+          <ul>
+            <li>Chain of title research</li>
+            <li>Mineral ownership determination</li>
+            <li>Title opinions as needed</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-stage="3">
+          <div class="stage-label">Stage 03</div>
+          <h3>Permitting & Access</h3>
+          <div class="pillars">
+            <span class="pillar primary">Permitting & ROW</span>
+            <span class="pillar">Title</span>
+            <span class="pillar">GIS</span>
+          </div>
+          <p>Placeholder content for the core permitting work. Agreements and permits secured with landowners and agencies. This is the primary service pillar.</p>
+          <ul>
+            <li>Landowner negotiations & agreements</li>
+            <li>Payment handling & 1099s</li>
+            <li>Agency coordination</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-stage="4">
+          <div class="stage-label">Stage 04</div>
+          <h3>Field Preparation</h3>
+          <div class="pillars">
+            <span class="pillar primary">Permitting</span>
+            <span class="pillar">GIS</span>
+          </div>
+          <p>Placeholder content. Access, records, and reporting systems put in place before crews mobilize.</p>
+          <ul>
+            <li>Final access confirmation</li>
+            <li>Documentation ready for field</li>
+            <li>Updated project maps</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-stage="5">
+          <div class="stage-label">Stage 05</div>
+          <h3>Field Operations</h3>
+          <div class="pillars">
+            <span class="pillar primary">Permitting</span>
+            <span class="pillar">GIS</span>
+          </div>
+          <p>Placeholder content. Ongoing coordination so daily work stays aligned with the plan, safety requirements, and existing agreements.</p>
+          <ul>
+            <li>Field support & tracking</li>
+            <li>Live data updates</li>
+            <li>Issue resolution as needed</li>
+          </ul>
+        </div>
+
+        <div class="panel" data-stage="6">
+          <div class="stage-label">Stage 06</div>
+          <h3>Project Closeout</h3>
+          <div class="pillars">
+            <span class="pillar primary">Permitting</span>
+            <span class="pillar">GIS</span>
+          </div>
+          <p>Placeholder content. Payments reconciled, records finalized, and reporting delivered.</p>
+          <ul>
+            <li>Final payment reconciliation</li>
+            <li>Complete project documentation</li>
+            <li>Updated final maps & databases</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <h2>How We Price</h2>
+      <p class="lead">A number, not a guess. Placeholder pricing differentiator text.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Typical Approach</h3>
+          <p>A range that gets revisited as the project develops. The number you plan around is not necessarily the number you pay.</p>
+        </div>
+        <div class="pricing-card highlight">
+          <h3>APS Land</h3>
+          <p>Guaranteed turnkey pricing. One number agreed up front and held through completion. No surprises on the invoice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll('#timelineNav button');
+    const panels = document.querySelectorAll('.panel');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Show matching panel
+        const stage = btn.getAttribute('data-stage');
+        panels.forEach(panel => {
+          panel.classList.remove('active');
+          if (panel.getAttribute('data-stage') === stage) {
+            panel.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
