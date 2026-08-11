@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Revised Concept</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fafafa;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== 1. COMBINED OPENING BLOCK ========== */
+    .opening {
+      background: #fff;
+      padding: 70px 0 60px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .opening h1 {
+      font-size: 2.3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .opening .intro {
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .opening-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 900px;
+    }
+
+    .opening-card h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .opening-card p {
+      font-size: 0.98rem;
+      color: #333;
+    }
+
+    .pricing-contrast {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .pricing-contrast h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 800px;
+    }
+
+    .price-box {
+      padding: 22px;
+      border-radius: 8px;
+      background: #f4f4f4;
+    }
+
+    .price-box.highlight {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .price-box h4 {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    /* ========== 2. PROJECT TIMELINE ========== */
+    .timeline {
+      padding: 70px 0;
+      background: #f7f7f7;
+    }
+
+    .timeline h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline .subtitle {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .stages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .stage {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 18px 16px;
+    }
+
+    .stage-number {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .stage h4 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .stage p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.45;
+    }
+
+    /* ========== 3. THREE SERVICE PILLARS ========== */
+    .services {
+      padding: 80px 0 100px;
+      background: #fff;
+    }
+
+    .services > .container > h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .services > .container > .lead {
+      color: #555;
+      margin-bottom: 50px;
+      max-width: 600px;
+    }
+
+    .pillar {
+      padding: 40px 0;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .pillar:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pillar-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .pillar h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .pillar p {
+      max-width: 680px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .pillar ul {
+      max-width: 680px;
+      padding-left: 20px;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .pillar li {
+      margin-bottom: 6px;
+    }
+
+    .pillar a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .opening-grid,
+      .pricing-row {
+        grid-template-columns: 1fr;
+      }
+
+      .opening h1 {
+        font-size: 1.9rem;
+      }
+
+      .stages {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. COMBINED OPENING: Intro + Safety + Pricing -->
+  <section class="opening">
+    <div class="container">
+      <h1>Services</h1>
+      <p class="intro">
+        Preparation and field coordination that keeps projects moving cleanly from first evaluation to final closeout. 
+        Placeholder intro text that extends the About page voice without repeating company history.
+      </p>
+
+      <div class="opening-grid">
+        <div class="opening-card">
+          <h3>Standards</h3>
+          <p>
+            Every member of the team operates under our Safety Program Manual and Injury & Illness Prevention Program. 
+            APS Land is an active member of ISNetworld. Placeholder safety statement.
+          </p>
+        </div>
+        <div class="opening-card">
+          <h3>Our Approach</h3>
+          <p>
+            We stay with the work from the first evaluation through the last report. 
+            Placeholder supporting line about responsibility and continuity.
+          </p>
+        </div>
+      </div>
+
+      <div class="pricing-contrast">
+        <h3>How We Price — A number, not a guess</h3>
+        <div class="pricing-row">
+          <div class="price-box">
+            <h4>Typical Approach</h4>
+            <p>A range that gets revisited as the project develops. The number you plan around is not necessarily the number you pay.</p>
+          </div>
+          <div class="price-box highlight">
+            <h4>APS Land</h4>
+            <p>Guaranteed turnkey pricing. One number agreed up front and held through completion. No surprises on the invoice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROJECT TIMELINE (lighter narrative bridge) -->
+  <section class="timeline">
+    <div class="container">
+      <h2>Across a Project</h2>
+      <p class="subtitle">The work follows a clear sequence. Here’s how it typically unfolds.</p>
+
+      <div class="stages">
+        <div class="stage">
+          <div class="stage-number">01</div>
+          <h4>Planning & Evaluation</h4>
+          <p>Geography, topography, and regulatory requirements assessed up front.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">02</div>
+          <h4>Land & Ownership</h4>
+          <p>Surface and mineral ownership identified tract by tract.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">03</div>
+          <h4>Permitting & Access</h4>
+          <p>Agreements and permits secured with landowners and agencies.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">04</div>
+          <h4>Field Preparation</h4>
+          <p>Access, records, and reporting in place before crews mobilize.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">05</div>
+          <h4>Field Operations</h4>
+          <p>Work tracked against the plan, safety requirements, and agreements.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-number">06</div>
+          <h4>Closeout</h4>
+          <p>Payments, records, and reporting reconciled and delivered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. THREE SERVICE PILLARS -->
+  <section class="services">
+    <div class="container">
+      <h2>What We Provide</h2>
+      <p class="lead">Three distinct capabilities that cover the full scope of land services work.</p>
+
+      <!-- Pillar 1: Title -->
+      <div class="pillar">
+        <div class="pillar-label">01 — Title & Ownership</div>
+        <h3>Title Curative</h3>
+        <p>
+          Placeholder lead paragraph. On any exploration or production project, confirming the correct chain of mineral ownership 
+          on every tract is one of the most critical tasks. Our title agents work across the country so a title issue never disrupts the project.
+        </p>
+        <ul>
+          <li>Mineral ownership determination for permitting</li>
+          <li>Full title search back to sovereignty when required</li>
+          <li>Land ownership, mineral rights, and surface title opinions</li>
+          <li>Coordination with the permitting work it supports</li>
+        </ul>
+        <a href="#">Talk to APS About Title →</a>
+      </div>
+
+      <!-- Pillar 2: Permitting -->
+      <div class="pillar">
+        <div class="pillar-label">02 — Permitting & Access</div>
+        <h3>Seismic Permitting & Right-of-Way Acquisition</h3>
+        <p>
+          Placeholder lead paragraph. Over 40 years of successfully permitting projects across 23 states using a proven team approach. 
+          An experienced manager provides direct oversight and clear communication throughout.
+        </p>
+        <ul>
+          <li>Agreements and access rights secured land by land</li>
+          <li>Full landowner payment services (checks, tracking, 1099s, IRS filings)</li>
+          <li>Direct work with municipal, county, state, and federal agencies</li>
+          <li>Large team of mineral agents, surface agents, and support staff</li>
+          <li>Comprehensive reporting and field coordination</li>
+        </ul>
+        <a href="#">Talk to APS About Permitting →</a>
+      </div>
+
+      <!-- Pillar 3: GIS -->
+      <div class="pillar">
+        <div class="pillar-label">03 — Mapping & Data</div>
+        <h3>GIS Services</h3>
+        <p>
+          Placeholder lead paragraph. Experienced GIS mappers and coordinators build comprehensive databases and maps for every project — 
+          surface, minerals, topography, infrastructure, and ownership — so nothing about the land is a surprise once work begins.
+        </p>
+        <ul>
+          <li>Project-specific maps combining all relevant layers</li>
+          <li>Working databases that stay current through the life of the job</li>
+          <li>Support from first evaluation through closeout</li>
+        </ul>
+        <a href="#">Talk to APS About GIS →</a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
