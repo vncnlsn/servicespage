@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APS Land Services — Services</title>
+  <style>
+    /* Base resets & typography */
+    :root {
+      --bg-light: #f8f9fa;
+      --bg-navy: #0e1726;
+      --bg-dark: #12181e;
+      --text-dark: #111827;
+      --text-light: #f3f4f6;
+      --accent: #c25e00;
+      --accent-hover: #9a4a00;
+      --border: #e5e7eb;
+      --border-dark: #2a3441;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-main); color: var(--text-dark); background: #ffffff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    
+    /* Layout utilities */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-padding { padding: 90px 0; }
+    .btn { display: inline-block; padding: 12px 28px; font-weight: 600; border-radius: 4px; background: var(--accent); color: #fff; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+
+    /* Nav */
+    nav { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.25rem; letter-spacing: 0.5px; }
+    .logo span { font-size: 0.75rem; color: #6b7280; font-weight: 400; margin-left: 8px; }
+    nav ul { display: flex; gap: 32px; list-style: none; font-weight: 500; font-size: 0.95rem; }
+
+    /* Header / Hero */
+    .page-header { padding: 80px 0 60px; background: #ffffff; }
+    .header-tag { font-weight: 700; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+    .page-header h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; max-width: 900px; }
+    .page-header p { font-size: 1.2rem; color: #4b5563; max-width: 780px; }
+
+    /* Timeline Section */
+    .timeline-section { background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .timeline-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 48px; position: relative; }
+    .timeline-card { background: #ffffff; border: 1px solid var(--border); padding: 20px 16px; border-radius: 6px; position: relative; }
+    .timeline-step { font-size: 0.8rem; font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+    .timeline-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .timeline-card p { font-size: 0.8rem; color: #6b7280; line-height: 1.4; }
+
+    /* Safety Navy Takeover Section */
+    .safety-takeover { background: var(--bg-navy); color: var(--text-light); padding: 90px 0; }
+    .safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .safety-badge { display: inline-block; background: rgba(194, 94, 0, 0.2); border: 1px solid var(--accent); color: #f97316; padding: 4px 12px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; margin-bottom: 16px; }
+    .safety-text h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+    .safety-text p { font-size: 1.05rem; color: #9ca3af; margin-bottom: 24px; line-height: 1.6; }
+    .safety-box { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-dark); padding: 32px; border-radius: 8px; }
+    .safety-box h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 16px; }
+    .safety-list { list-style: none; }
+    .safety-list li { margin-bottom: 12px; color: #d1d5db; font-size: 0.95rem; padding-left: 24px; position: relative; }
+    .safety-list li::before { content: "■"; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 2px; }
+
+    /* Three Tiers / Deep Dive Section */
+    .services-detail-section { padding: 90px 0; }
+    .service-block { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 48px; overflow: hidden; background: #ffffff; }
+    .service-header { padding: 32px 40px; background: var(--bg-light); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .service-header-text h3 { font-size: 1.75rem; font-weight: 700; }
+    .service-tag { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+    .service-content { padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .service-overview h4, .service-execution h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: #374151; }
+    .service-overview ul { list-style: none; }
+    .service-overview li { padding-left: 24px; position: relative; margin-bottom: 12px; color: #4b5563; font-size: 0.95rem; }
+    .service-overview li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+    .service-execution p { color: #4b5563; font-size: 0.95rem; margin-bottom: 16px; line-height: 1.6; }
+
+    /* Pricing Differentiator Closing Section */
+    .pricing-closing { background: var(--bg-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; text-align: center; }
+    .pricing-card { max-width: 800px; margin: 0 auto; background: #ffffff; border: 1px solid var(--border); padding: 48px; border-radius: 8px; text-align: left; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+    .pricing-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 24px; }
+    .pricing-col h5 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .pricing-col p { font-size: 0.95rem; color: #4b5563; }
+
+    /* Call to Action */
+    .cta-section { text-align: center; padding: 100px 0; background: #ffffff; }
+    .cta-section h2 { font-size: 2.5rem; margin-bottom: 16px; font-weight: 700; }
+    .cta-section p { font-size: 1.15rem; color: #4b5563; margin-bottom: 32px; }
+
+    /* Footer */
+    footer { background: var(--bg-dark); color: var(--text-light); padding: 80px 0 40px; border-top: 1px solid var(--border-dark); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 60px; }
+    .footer-brand p { color: #9ca3af; margin-top: 12px; font-size: 0.95rem; }
+    .footer-col h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: #d1d5db; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: #9ca3af; font-size: 0.95rem; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--border-dark); padding-top: 32px; display: flex; justify-content: space-between; font-size: 0.85rem; color: #6b7280; }
+
+    @media (max-width: 900px) {
+      .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+      .safety-grid, .service-content, .pricing-comparison, .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container">
+      <div class="logo">APS LAND SERVICES <span>EST. 1980</span></div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Landowners</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- INTRO / HOOK -->
+  <header class="page-header">
+    <div class="container">
+      <span class="header-tag">Full-Lifecycle Access &amp; Permitting</span>
+      <h1>Present for the whole job—from first map to final closeout.</h1>
+      <p>Energy and infrastructure projects fail when handoffs break down. APS Land Services stays engaged through every phase, ensuring field operations perfectly match the agreements, permits, and titles established upfront.</p>
+    </div>
+  </header>
+
+  <!-- SIMPLE PROJECT TIMELINE -->
+  <section class="timeline-section section-padding">
+    <div class="container">
+      <span class="header-tag">End-to-End Sequence</span>
+      <h2 style="font-size: 2rem; font-weight: 700;">How We Support the Project Lifecycle</h2>
+
+      <div class="timeline-grid">
+        <div class="timeline-card">
+          <div class="timeline-step">01. PLANNING</div>
+          <h4>Evaluation</h4>
+          <p>Assessing topography, surface constraints, and agency regulations before field entry.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">02. TITLE</div>
+          <h4>Ownership</h4>
+          <p>Researching mineral and surface title chains tract by tract back to sovereignty.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">03. PERMITS</div>
+          <h4>Access Rights</h4>
+          <p>Securing landowner agreements along with local, state, and federal agency permits.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">04. FIELD PREP</div>
+          <h4>Setup</h4>
+          <p>Establishing GIS mapping databases and tracking systems prior to field mobilization.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">05. OPERATIONS</div>
+          <h4>Field Oversight</h4>
+          <p>Active coordination on the ground so operations adhere strictly to permit terms.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-step">06. CLOSEOUT</div>
+          <h4>Reconciliation</h4>
+          <p>Finalizing landowner payments, 1099 filings, and delivering project reporting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY NAVY TAKEOVER SECTION -->
+  <section class="safety-takeover">
+    <div class="container">
+      <div class="safety-grid">
+        <div class="safety-text">
+          <span class="safety-badge">Safety &amp; Compliance</span>
+          <h2>Zero compromises on safety, compliance, or field standards.</h2>
+          <p>In our industry, safety isn't a checklist item—it is an active daily operational requirement. Our personnel operate under rigorous Health, Safety, and Environment (HSE) protocols to protect our crews, client assets, and property owners alike.</p>
+          <a href="#" class="btn">Download Safety Overview PDF</a>
+        </div>
+
+        <div class="safety-box">
+          <h3>Our HSE Commitments</h3>
+          <ul class="safety-list">
+            <li>Active, compliant member of <strong>ISNetworld</strong></li>
+            <li>Comprehensive Injury &amp; Illness Prevention Program (IIPP)</li>
+            <li>Mandatory site-specific safety briefings prior to field mobilization</li>
+            <li>Direct manager oversight ensuring compliance on every tract</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE TIERS OF SERVICES & DEEPER DIVE EXPLANATIONS -->
+  <section class="services-detail-section">
+    <div class="container">
+      <div style="margin-bottom: 48px;">
+        <span class="header-tag">Core Capabilities</span>
+        <h2 style="font-size: 2.25rem; font-weight: 700;">Three specialized disciplines. One unified execution.</h2>
+      </div>
+
+      <!-- SERVICE TIER 1 -->
+      <div class="service-block">
+        <div class="service-header">
+          <div class="service-header-text">
+            <h3>Seismic Permitting &amp; Right-of-Way Acquisition</h3>
+          </div>
+          <span class="service-tag">Tier 01 — Access &amp; Permits</span>
+        </div>
+        <div class="service-content">
+          <div class="service-overview">
+            <h4>Quick Overview</h4>
+            <ul>
+              <li>Permit acquisition across private, state, federal, and tribal lands</li>
+              <li>Full landowner payment services (Check generation, tracking, 1099/IRS filings)</li>
+              <li>Agency coordination (Municipal, County, State DOT, BLM/USFS)</li>
+              <li>Dedicated field coordinators staying on site during exploration</li>
+            </ul>
+          </div>
+          <div class="service-execution">
+            <h4>How APS Executes the Work</h4>
+            <p>We deploy experienced surface and mineral agents who understand landowner dynamics. Rather than taking a heavy-handed approach, we negotiate access terms with respect and transparency, securing rights efficiently without burning bridges in local communities.</p>
+            <p>Our direct project managers handle all administrative load—including secure landowner payment processing and agency filings—so project schedules remain intact from start to finish.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE TIER 2 -->
+      <div class="service-block">
+        <div class="service-header">
+          <div class="service-header-text">
+            <h3>Title Curative</h3>
+          </div>
+          <span class="service-tag">Tier 02 — Chain of Title</span>
+        </div>
+        <div class="service-content">
+          <div class="service-overview">
+            <h4>Quick Overview</h4>
+            <ul>
+              <li>Mineral ownership determination specifically tailored for permitting</li>
+              <li>Full mineral title search back to sovereignty</li>
+              <li>Surface title and land ownership title opinions</li>
+              <li>Proactive resolution of title defects prior to field entry</li>
+            </ul>
+          </div>
+          <div class="service-execution">
+            <h4>How APS Executes the Work</h4>
+            <p>A single cloud on a title can delay an entire exploration program. Our title specialists work in county courthouses and digital archives across the country to verify exact ownership chains back to original sovereignty.</p>
+            <p>Because our title team works side-by-side with our field permitting agents, title issues are flagged and corrected immediately, avoiding costly downtime when crews arrive on site.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE TIER 3 -->
+      <div class="service-block">
+        <div class="service-header">
+          <div class="service-header-text">
+            <h3>GIS &amp; Mapping Services</h3>
+          </div>
+          <span class="service-tag">Tier 03 — Spatial Intelligence</span>
+        </div>
+        <div class="service-content">
+          <div class="service-overview">
+            <h4>Quick Overview</h4>
+            <ul>
+              <li>Comprehensive project maps combining surface, mineral, &amp; infrastructure layers</li>
+              <li>Real-time database tracking updated continuously during field work</li>
+              <li>Custom spatial reporting delivered in client-requested formats</li>
+              <li>Post-project archive data handoff for long-term operations</li>
+            </ul>
+          </div>
+          <div class="service-execution">
+            <h4>How APS Executes the Work</h4>
+            <p>Data clarity is essential for decision-making. Our dedicated GIS mappers build customized spatial databases for every assignment, integrating parcel boundaries, topographic data, surface obstacles, and permit status into clear, usable map layers.</p>
+            <p>These databases remain live throughout the life of the project, giving managers and clients an accurate, real-time picture of permitting progress and field readiness.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING DIFFERENTIATOR CLOSING STATEMENT -->
+  <section class="pricing-closing">
+    <div class="container">
+      <div class="pricing-card">
+        <span class="header-tag">The APS Difference</span>
+        <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 12px;">Turnkey Pricing: A number, not a guess.</h3>
+        <p style="color: #4b5563; font-size: 1.05rem;">Most brokerages present estimates that grow as the project develops. APS Land Services operates differently.</p>
+
+        <div class="pricing-comparison">
+          <div class="pricing-col" style="border-right: 1px solid var(--border); padding-right: 24px;">
+            <h5 style="color: #9ca3af;">Typical Industry Approach</h5>
+            <p>Open-ended hourly billing or floating estimate ranges that get revised upward when unexpected challenges arise in the field.</p>
+          </div>
+          <div class="pricing-col" style="padding-left: 8px;">
+            <h5 style="color: var(--accent);">The APS Turnkey Model</h5>
+            <p>We evaluate the scope upfront, deliver one guaranteed turnkey number, and hold that number through project completion. No unexpected invoice revisions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to discuss your upcoming project?</h2>
+      <p>Talk directly with an APS project manager to review scope, land requirements, and turnkey pricing options.</p>
+      <a href="#" class="btn">Get in Touch with APS</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color: #fff;">APS LAND SERVICES</div>
+          <p>Land Services &amp; Permit Acquisition Since 1980.<br>Formerly Allstate Permit Services.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Landowners</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">Cache Valley, UT</a></li>
+            <li><a href="#">info@apsland.com</a></li>
+            <li><a href="#">(XXX) XXX-XXXX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© Allstate Permit Services. All rights reserved.</span>
+        <span>APS Land Services</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
